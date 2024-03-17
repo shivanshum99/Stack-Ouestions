@@ -1,0 +1,30 @@
+void sorted(stack<int> &st, int target){
+    if(st.empty()){
+        st.push(target);
+        return;
+    }
+    if(st.top()<=target){
+        st.push(target);
+        return;
+    }
+        
+    int temp = st.top();
+    st.pop();
+        
+    sorted(st, target);
+        
+    st.push(temp);
+}
+void SortedStack :: sort()
+{
+   if(s.empty()){
+       return;
+   }
+   
+   int temp = s.top();
+   s.pop();
+   
+   sort();
+   
+   sorted(s, temp);
+}
