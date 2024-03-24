@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 vector<int> nextSmallerElement(vector<int> &arr, int n)
 {
+    // right to left for -> next smaller element
     vector<int> ans(n);
     stack<int>s;
     s.push(-1);
@@ -9,7 +10,11 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
         while(s.top() >= curr){
             s.pop();
         }
+
+        // smaller element mil gaya h, store it in ans array
         ans[i] = s.top();
+
+        //ten push kardo arr element ko
         s.push(curr);
     }
     return ans;
